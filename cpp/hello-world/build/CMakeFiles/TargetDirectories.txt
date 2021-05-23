@@ -1,0 +1,4 @@
+/home/colin/lcode/exercism/cpp/hello-world/build/CMakeFiles/rebuild_cache.dir
+/home/colin/lcode/exercism/cpp/hello-world/build/CMakeFiles/edit_cache.dir
+/home/colin/lcode/exercism/cpp/hello-world/build/CMakeFiles/test_hello-world.dir
+/home/colin/lcode/exercism/cpp/hello-world/build/CMakeFiles/hello-world.dir
