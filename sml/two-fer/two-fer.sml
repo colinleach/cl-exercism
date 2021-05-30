@@ -1,2 +1,2 @@
 fun name (input: string option) =
-  raise Fail "'name' is not implemented"
+  "One for " ^ getOpt(input, "you") ^ ", one for me."
