@@ -1,8 +1,10 @@
 #if !defined(ISOGRAM_H)
 #define ISOGRAM_H
 
-namespace isogram {
+#include <string>
 
+namespace isogram {
+	bool is_isogram(std::string input);
 }  // namespace isogram
 
 #endif // ISOGRAM_H
