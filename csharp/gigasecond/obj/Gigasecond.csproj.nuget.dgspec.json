@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "c:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj": {}
+    "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj": {}
   },
   "projects": {
-    "c:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj": {
+    "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj",
-        "projectName": "HelloWorld",
-        "projectPath": "c:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj",
+        "projectUniqueName": "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj",
+        "projectName": "Gigasecond",
+        "projectPath": "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj",
         "packagesPath": "C:\\Users\\colin\\.nuget\\packages\\",
-        "outputPath": "c:\\data\\dcode\\exercism\\csharp\\hello-world\\obj\\",
+        "outputPath": "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\colin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "netcoreapp3.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "netcoreapp3.0": {
+            "targetAlias": "netcoreapp3.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "netcoreapp3.0": {
+          "targetAlias": "netcoreapp3.0",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -47,10 +47,6 @@
             "xunit": {
               "target": "Package",
               "version": "[2.4.1, )"
-            },
-            "xunit.analyzers": {
-              "target": "Package",
-              "version": "[0.10.0, )"
             },
             "xunit.runner.visualstudio": {
               "target": "Package",

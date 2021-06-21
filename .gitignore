@@ -6,3 +6,9 @@ csharp/hello-world/bin/Debug/netcoreapp3.1/fr/Microsoft.VisualStudio.TestPlatfor
 csharp/hello-world/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
 
 *.dll
+
+*.cache
+
+*.props
+
+*.targets
