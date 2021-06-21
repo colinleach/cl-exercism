@@ -1,30 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/home/colin/lcode/exercism/csharp/hello-world/HelloWorld.csproj": {}
+    "C:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj": {}
   },
   "projects": {
-    "/home/colin/lcode/exercism/csharp/hello-world/HelloWorld.csproj": {
+    "C:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/colin/lcode/exercism/csharp/hello-world/HelloWorld.csproj",
+        "projectUniqueName": "C:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj",
         "projectName": "HelloWorld",
-        "projectPath": "/home/colin/lcode/exercism/csharp/hello-world/HelloWorld.csproj",
-        "packagesPath": "/home/colin/.nuget/packages/",
-        "outputPath": "/home/colin/lcode/exercism/csharp/hello-world/obj/",
+        "projectPath": "C:\\data\\dcode\\exercism\\csharp\\hello-world\\HelloWorld.csproj",
+        "packagesPath": "C:\\Users\\colin\\.nuget\\packages\\",
+        "outputPath": "C:\\data\\dcode\\exercism\\csharp\\hello-world\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/colin/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\colin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp5.0"
+          "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "netcoreapp5.0",
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -35,8 +37,8 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "netcoreapp5.0",
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -45,6 +47,10 @@
             "xunit": {
               "target": "Package",
               "version": "[2.4.1, )"
+            },
+            "xunit.analyzers": {
+              "target": "Package",
+              "version": "[0.10.0, )"
             },
             "xunit.runner.visualstudio": {
               "target": "Package",
@@ -66,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/snap/dotnet-sdk/126/sdk/5.0.203/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

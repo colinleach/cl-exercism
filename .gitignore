@@ -1,2 +1,8 @@
 
 cfml/scrabble-score/box.json
+
+csharp/hello-world/bin/Debug/netcoreapp3.1/fr/Microsoft.VisualStudio.TestPlatform.Common.resources.dll
+
+csharp/hello-world/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CrossPlatEngine.resources.dll
+
+*.dll
