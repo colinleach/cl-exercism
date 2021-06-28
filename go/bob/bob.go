@@ -1,15 +1,36 @@
-// This is a "stub" file.  It's a little start on your solution.
-// It's not a complete solution though; you have to write some code.
-
-// Package bob should have a package comment that summarizes what it's about.
-// https://golang.org/doc/effective_go.html#commentary
 package bob
+
+import (
+	"regexp"
+	"strings"
+)
 
 // Hey should have a comment documenting it.
 func Hey(remark string) string {
-	// Write some code here to pass the test suite.
-	// Then remove all the stock comments.
-	// They're here to help you get started but they only clutter a finished solution.
-	// If you leave them in, reviewers may protest!
-	return ""
+	nonWhitespace, _ := regexp.MatchString("[^\t\n\f\r ]", remark)
+	if !nonWhitespace {
+		return "Fine. Be that way!"
+	}
+
+	remark = strings.Trim(remark, " ")
+	hasUpper, _ := regexp.MatchString("[A-Z]", remark)
+	hasLower, _ := regexp.MatchString("[a-z]", remark)
+	isUpper := hasUpper && !hasLower
+	isQuestion := remark[len(remark)-1] == '?'
+
+	var resp string
+	if isUpper {
+		if isQuestion {
+			resp = "Calm down, I know what I'm doing!"
+		} else {
+			resp = "Whoa, chill out!"
+		}
+	} else {
+		if isQuestion {
+			resp = "Sure."
+		} else {
+			resp = "Whatever."
+		}
+	}
+	return resp
 }
