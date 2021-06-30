@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "c:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj": {}
+    "C:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj": {}
   },
   "projects": {
-    "c:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj": {
+    "C:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj",
+        "projectUniqueName": "C:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj",
         "projectName": "Leap",
-        "projectPath": "c:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj",
+        "projectPath": "C:\\data\\dcode\\exercism\\csharp\\leap\\Leap.csproj",
         "packagesPath": "C:\\Users\\colin\\.nuget\\packages\\",
-        "outputPath": "c:\\data\\dcode\\exercism\\csharp\\leap\\obj\\",
+        "outputPath": "C:\\data\\dcode\\exercism\\csharp\\leap\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\colin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
-            "targetAlias": "netcoreapp3.0",
+          "net5.0": {
+            "targetAlias": "netcoreapp5.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
-          "targetAlias": "netcoreapp3.0",
+        "net5.0": {
+          "targetAlias": "netcoreapp5.0",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",

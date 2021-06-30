@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj": {}
+    "C:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj": {}
   },
   "projects": {
-    "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj": {
+    "C:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj",
+        "projectUniqueName": "C:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj",
         "projectName": "Gigasecond",
-        "projectPath": "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj",
+        "projectPath": "C:\\data\\dcode\\exercism\\csharp\\gigasecond\\Gigasecond.csproj",
         "packagesPath": "C:\\Users\\colin\\.nuget\\packages\\",
-        "outputPath": "c:\\data\\dcode\\exercism\\csharp\\gigasecond\\obj\\",
+        "outputPath": "C:\\data\\dcode\\exercism\\csharp\\gigasecond\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\colin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.0"
+          "netcoreapp5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.0": {
-            "targetAlias": "netcoreapp3.0",
+          "net5.0": {
+            "targetAlias": "netcoreapp5.0",
             "projectReferences": {}
           }
         },
@@ -37,8 +37,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.0": {
-          "targetAlias": "netcoreapp3.0",
+        "net5.0": {
+          "targetAlias": "netcoreapp5.0",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
