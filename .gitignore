@@ -12,3 +12,5 @@ csharp/hello-world/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CrossPlatEn
 *.props
 
 *.targets
+
+csharp/resistor-color/.editorconfig
