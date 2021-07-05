@@ -9,15 +9,21 @@ defmodule RnaTranscription do
   """
   @spec to_rna([char]) :: [char]
   def to_rna(dna) do
-    Enum.map(dna, fn(b) -> translate(b) end)
+    to_rna(dna, '')
   end
 
-  def translate(base) do
-    case base do
-      ?G -> ?C
-      ?C -> ?G
-      ?T -> ?A
-      ?A -> ?U
-    end
+  def to_rna([], rna) do
+    Enum.reverse(rna)
   end
+
+  def to_rna([head | tail], rna) do
+    translation = case head do
+      ?G -> 'C'
+      ?C -> 'G'
+      ?T -> 'A'
+      ?A -> 'U'
+    end
+    to_rna(tail, translation ++ rna)
+  end
+
 end
