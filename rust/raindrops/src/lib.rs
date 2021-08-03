@@ -1,22 +1,16 @@
 pub fn raindrops(n: u32) -> String {
-    let pling = if n % 3 == 0 {
-        String::from("Pling")
-    } else {
-        String::from("")
+    let mut drops = String::new();
+    if n % 3 == 0 {
+        drops.push_str("Pling");
     };
-    let plang = if n % 5 == 0 {
-        String::from("Plang")
-    } else {
-        String::from("")
+    if n % 5 == 0 {
+        drops.push_str("Plang")
     };
-    let plong = if n % 7 == 0 {
-        String::from("Plong")
-    } else {
-        String::from("")
+    if n % 7 == 0 {
+        drops.push_str("Plong")
     };
 
-    let drops = pling + &plang + &plong;
-    if drops.len() == 0 {
+    if drops.is_empty() {
         n.to_string()
     } else {
         drops
