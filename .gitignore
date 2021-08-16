@@ -14,3 +14,5 @@ csharp/hello-world/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CrossPlatEn
 *.targets
 
 csharp/resistor-color/.editorconfig
+
+python/twelve-days/Untitled.ipynb
