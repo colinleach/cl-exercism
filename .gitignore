@@ -16,3 +16,6 @@ csharp/hello-world/bin/Debug/netcoreapp3.1/fr/Microsoft.TestPlatform.CrossPlatEn
 csharp/resistor-color/.editorconfig
 
 python/twelve-days/Untitled.ipynb
+
+.fake
+.ionide
