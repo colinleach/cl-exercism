@@ -19,3 +19,9 @@ python/twelve-days/Untitled.ipynb
 
 .fake
 .ionide
+
+.gradle/
+gradle/
+.exercism/
+build/
+
