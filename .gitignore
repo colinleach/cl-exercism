@@ -24,4 +24,5 @@ python/twelve-days/Untitled.ipynb
 gradle/
 .exercism/
 build/
+.idea/
 
