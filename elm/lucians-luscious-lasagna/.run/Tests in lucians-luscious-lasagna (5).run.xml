@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Tests in lucians-luscious-lasagna (5)" type="ELM_TEST_RUN_CONFIGURATION" factoryName="Elm Test configuration factory">
+    <ElmTestRunConfiguration elm-folder="D:\data\wcode\exercism\elm\lucians-luscious-lasagna" />
+    <method v="2" />
+  </configuration>
+</component>
