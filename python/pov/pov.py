@@ -1,8 +1,9 @@
 from json import dumps
+from typing import List
 
 
 class Tree:
-    def __init__(self, label, children=[]):
+    def __init__(self, label: str, children=[]) -> None:
         self.label = label
         self.children = children
 
@@ -12,14 +13,17 @@ class Tree:
     def __str__(self, indent=None):
         return dumps(self.__dict__(), indent=indent)
 
-    def __lt__(self, other):
+    def __lt__(self, other: str) -> bool:
         return self.label < other.label
 
     def __eq__(self, other):
         return self.__dict__() == other.__dict__()
 
+    def __repr__(self):
+        return f"self.label, [{[child.__repr__() for child in self.children]}]"
+
     def from_pov(self, from_node):
-        path = self.find(from_node, [])
+        path = self.find(from_node)
         if len(path) == 1:
             return self
         print('path: ', [p.label for p in path])
@@ -45,17 +49,16 @@ class Tree:
     def set_parent(self, parent):
         self.parent = parent
 
-
-    def find(self, label, path):
-        path.append(self)
+    def find(self, label):
+        # path.append(self)
         if self.label == label:
-            return path
+            return self
         else:
             if len(self.children) == 0:
                 return None
             else:
                 for child in self.children:
-                    resp = child.find(label, path)
+                    resp = child.find(label)
                     if resp is not None:
                         return resp
         return None
