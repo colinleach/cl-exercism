@@ -53,7 +53,7 @@ in the same order they were defined in
 
 ## Submitting your solution
 
-You can submit your solution using the `exercism submit lib/secrets.ex` command.
+You can submit your solution using the `exercism submit lib/language_list.ex` command.
 This command will upload your solution to the Exercism website and print the solution page's URL.
 
 It's possible to submit an incomplete solution which allows you to:
