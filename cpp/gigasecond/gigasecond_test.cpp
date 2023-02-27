@@ -1,5 +1,9 @@
 #include "gigasecond.h"
+#ifdef EXERCISM_TEST_SUITE
+#include <catch2/catch.hpp>
+#else
 #include "test/catch.hpp"
+#endif
 #include "boost/date_time/posix_time/posix_time.hpp"
 
 // This problem requires you to install and use the boost date_time library.
@@ -18,7 +22,7 @@ TEST_CASE("test_1")
     REQUIRE(expected == actual);
 }
 
-#if defined(EXERCISM_RUN_ALL_TESTS)
+// #if defined(EXERCISM_RUN_ALL_TESTS)
 TEST_CASE("test_2")
 {
     const auto actual = gigasecond::advance(time_from_string("1977-06-13 00:00:00"));
@@ -50,4 +54,4 @@ TEST_CASE("test_5")
     const ptime expected(time_from_string("2046-10-03 01:46:39"));
     REQUIRE(expected == actual);
 }
-#endif
+//#endif
