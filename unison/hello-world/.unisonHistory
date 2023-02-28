@@ -1,0 +1,9 @@
+quit
+load hello.test.u
+update
+add
+load hello.u
+update
+load hello.test.u
+update
+add

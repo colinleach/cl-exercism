@@ -1,0 +1,95 @@
+2023.02.14 17:04:51 INFO  tracing is disabled for protocol LSP, to enable tracing of incoming and outgoing JSON messages create an empty file at /home/colin/zcode/exercism/scala/.metals/lsp.trace.json or /home/colin/.cache/metals/lsp.trace.json
+2023.02.14 17:04:52 INFO  logging to file /home/colin/zcode/exercism/scala/.metals/metals.log
+2023.02.14 17:04:52 INFO  Started: Metals version 0.11.10 in workspace '/home/colin/zcode/exercism/scala' for client Visual Studio Code 1.75.1.
+2023.02.14 17:04:52 WARN  Can't instantiate JavaInteractiveSemanticdb (version: JdkVersion(11), jdkHome: /usr/lib/jvm/java-11-openjdk-amd64, javac exists: false)
+SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
+SLF4J: Ignoring binding found at [jar:file:/home/colin/.cache/coursier/v1/https/repo1.maven.org/maven2/com/outr/scribe-slf4j_2.13/3.10.5/scribe-slf4j_2.13-3.10.5.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
+2023.02.14 17:04:53 INFO  time: initialize in 1.13s
+2023.02.14 17:04:56 WARN  Build server is not auto-connectable.
+2023.02.14 17:04:56 WARN  no build tool detected in workspace '/home/colin/zcode/exercism/scala'. The most common cause for this problem is that the editor was opened in the wrong working directory, for example if you use sbt then the workspace directory should contain build.sbt. 
+2023.02.14 17:04:56 WARN  no build target for: /home/colin/zcode/exercism/scala/two-fer/src/main/scala/Twofer.scala
+2023.02.14 17:05:02 INFO  no build target found for /home/colin/zcode/exercism/scala/two-fer/src/main/scala/Twofer.scala. Using presentation compiler with project's scala-library version: 3.2.1
+2023.02.14 17:05:56 WARN  no build target for: /home/colin/zcode/exercism/scala/two-fer/src/test/scala/TwoferTest.scala
+2023.02.14 17:38:49 WARN  no build target for: /home/colin/zcode/exercism/scala/two-fer/src/main/scala/Twofer.scala
+2023.02.14 17:40:05 WARN  no build target for: /home/colin/zcode/exercism/scala/two-fer/src/test/scala/TwoferTest.scala
+2023.02.14 17:48:06 WARN  no build target for: /home/colin/zcode/exercism/scala/leap/src/main/scala/Leap.scala
+Feb 14, 2023 5:50:25 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 376
+2023.02.14 17:50:35 WARN  no build target for: /home/colin/zcode/exercism/scala/leap/src/main/scala/Leap.scala
+2023.02.14 17:51:09 WARN  no build target for: /home/colin/zcode/exercism/scala/leap/src/test/scala/LeapTest.scala
+2023.02.14 17:51:19 WARN  no build target for: /home/colin/zcode/exercism/scala/leap/src/test/scala/LeapTest.scala
+2023.02.14 17:54:55 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/main/scala/SpaceAge.scala
+2023.02.14 17:54:56 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/test/scala/SpaceAgeTest.scala
+2023.02.14 17:55:31 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/main/scala/SpaceAge.scala
+2023.02.14 18:04:59 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/main/scala/SpaceAge.scala
+2023.02.14 18:05:01 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/main/scala/SpaceAge.scala
+Feb 14, 2023 6:06:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 807
+2023.02.14 18:08:17 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/main/scala/SpaceAge.scala
+2023.02.14 18:08:53 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/test/scala/SpaceAgeTest.scala
+2023.02.14 18:09:50 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/main/scala/SpaceAge.scala
+2023.02.14 18:10:14 WARN  no build target for: /home/colin/zcode/exercism/scala/space-age/src/main/scala/SpaceAge.scala
+2023.02.14 18:19:48 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.14 18:20:11 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/test/scala/GradeSchoolTest.scala
+Feb 15, 2023 6:51:19 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1156
+2023.02.15 06:51:26 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+Feb 15, 2023 6:51:29 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1182
+2023.02.15 06:51:56 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 07:45:33 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:10:06 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+Feb 15, 2023 10:10:18 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1620
+2023.02.15 10:10:45 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:11:43 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:12:47 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:13:07 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:16:29 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:18:00 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:19:42 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:20:31 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:21:10 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:25:50 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:30:20 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:34:27 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:34:56 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:36:43 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:37:50 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:46:47 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:47:40 WARN  no build target for: /home/colin/zcode/exercism/scala/grade-school/src/main/scala/GradeSchool.scala
+2023.02.15 10:49:52 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+2023.02.15 11:01:56 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/test/scala/HammingTest.scala
+2023.02.15 11:15:38 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+Feb 15, 2023 11:32:40 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2814
+2023.02.15 11:36:47 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+2023.02.15 11:38:30 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+2023.02.15 11:39:09 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+Feb 15, 2023 11:42:04 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3002
+2023.02.15 11:42:09 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+Feb 15, 2023 11:43:53 AM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3061
+2023.02.15 11:44:03 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+2023.02.15 11:44:49 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/test/scala/HammingTest.scala
+2023.02.15 11:46:04 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+2023.02.15 11:51:44 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/main/scala/CollatzConjecture.scala
+2023.02.15 11:52:09 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/test/scala/CollatzConjectureTest.scala
+2023.02.15 11:52:50 WARN  no build target for: /home/colin/zcode/exercism/scala/hamming/src/main/scala/Hamming.scala
+Feb 15, 2023 12:13:15 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3495
+2023.02.15 12:14:28 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/main/scala/CollatzConjecture.scala
+2023.02.15 12:14:36 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/main/scala/CollatzConjecture.scala
+2023.02.15 12:16:07 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/main/scala/CollatzConjecture.scala
+2023.02.15 12:17:08 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/main/scala/CollatzConjecture.scala
+Feb 15, 2023 12:17:53 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 3721
+2023.02.15 12:17:59 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/main/scala/CollatzConjecture.scala
+2023.02.15 12:18:40 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/test/scala/CollatzConjectureTest.scala
+2023.02.15 12:19:17 WARN  no build target for: /home/colin/zcode/exercism/scala/collatz-conjecture/src/main/scala/CollatzConjecture.scala
+2023.02.15 12:37:06 INFO  shutting down Metals
