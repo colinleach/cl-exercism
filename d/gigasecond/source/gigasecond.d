@@ -1,8 +1,11 @@
 module gigasecond;
 
-
-
 import std.datetime;
+import core.time : seconds;
+
+DateTime add(DateTime start) {
+    return start + 1_000_000_000.seconds;
+}
 
 unittest
 {
@@ -11,8 +14,6 @@ unittest
     // Date only specification of time
     assert(add(DateTime(2011, 4, 25)) == DateTime(2043, 1, 1, 1, 46, 40));
 
-    static if (allTestsEnabled)
-    {
         // Second test for date only specification of time"
         assert(add(DateTime(1977, 6, 13)) == DateTime(2009, 2, 19, 1, 46, 40));
 
@@ -29,6 +30,4 @@ unittest
         auto d = DateTime(2011, 4, 25);
         assert(add(d) == DateTime(2043, 1, 1, 1, 46, 40));
         assert(d == DateTime(2011, 4, 25));
-    }
-
-}
+ }
