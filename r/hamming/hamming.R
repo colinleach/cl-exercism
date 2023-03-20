@@ -1,14 +1,10 @@
-# This is a stub function to take two strings
-# and calculate the hamming distance
 hamming <- function(strand1, strand2) {
-  stopifnot(nchar(strand1) == nchar(strand2))
+  if (length(strand1) != length(strand2)) {
+    stop("Mismatched lengths")
+  }
   
-  count <- 0
-  s1 <- strsplit(strand1, "")
-  s2 <- strsplit(strand2, "")
-  for (i in 1:length(s1)) 
-    if (s1[i] != s2[i]) 
-      count <- count + 1
-  
-  return(count)
+  seq1 = array(unlist(strsplit(strand1, split='')))
+  seq2 = array(unlist(strsplit(strand2, split='')))
+  mismatches = seq1 != seq2
+  length(mismatches[mismatches])
 }

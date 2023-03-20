@@ -352,57 +352,59 @@ display: none;
 </div>
 
 
-<div id="hamming" class="section level1">
-<h1>Hamming</h1>
-<p>Welcome to Hamming on Exercism’s R Track. If you need help running
+<div id="raindrops" class="section level1">
+<h1>Raindrops</h1>
+<p>Welcome to Raindrops on Exercism’s R Track. If you need help running
 the tests or submitting your code, check out <code>HELP.md</code>.</p>
 <div id="instructions" class="section level2">
 <h2>Instructions</h2>
-<p>Calculate the Hamming Distance between two DNA strands.</p>
-<p>Your body is made up of cells that contain DNA. Those cells regularly
-wear out and need replacing, which they achieve by dividing into
-daughter cells. In fact, the average human body experiences about 10
-quadrillion cell divisions in a lifetime!</p>
-<p>When cells divide, their DNA replicates too. Sometimes during this
-process mistakes happen and single pieces of DNA get encoded with the
-incorrect information. If we compare two strands of DNA and count the
-differences between them we can see how many mistakes occurred. This is
-known as the “Hamming Distance”.</p>
-<p>We read DNA using the letters C,A,G and T. Two strands might look
-like this:</p>
-<pre><code>GAGCCTACTAACGGGAT
-CATCGTAATGACGGCCT
-^ ^ ^  ^ ^    ^^</code></pre>
-<p>They have 7 differences, and therefore the Hamming Distance is 7.</p>
-<p>The Hamming Distance is useful for lots of things in science, not
-just biology, so it’s a nice phrase to be familiar with :)</p>
+<p>Your task is to convert a number into a string that contains raindrop
+sounds corresponding to certain potential factors. A factor is a number
+that evenly divides into another number, leaving no remainder. The
+simplest way to test if one number is a factor of another is to use the
+<a href="https://en.wikipedia.org/wiki/Modulo_operation">modulo
+operation</a>.</p>
+<p>The rules of <code>raindrops</code> are that if a given number:</p>
+<ul>
+<li>has 3 as a factor, add ‘Pling’ to the result.</li>
+<li>has 5 as a factor, add ‘Plang’ to the result.</li>
+<li>has 7 as a factor, add ‘Plong’ to the result.</li>
+<li><em>does not</em> have any of 3, 5, or 7 as a factor, the result
+should be the digits of the number.</li>
+</ul>
 </div>
-<div id="implementation-notes" class="section level2">
-<h2>Implementation notes</h2>
-<p>The Hamming distance is only defined for sequences of equal length,
-so an attempt to calculate it between sequences of different lengths
-should not work.</p>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<ul>
+<li>28 has 7 as a factor, but not 3 or 5, so the result would be
+“Plong”.</li>
+<li>30 has both 3 and 5 as factors, but not 7, so the result would be
+“PlingPlang”.</li>
+<li>34 is not factored by 3, 5, or 7, so the result would be “34”.</li>
+</ul>
 </div>
 <div id="source" class="section level2">
 <h2>Source</h2>
 <div id="created-by" class="section level3">
 <h3>Created by</h3>
 <ul>
-<li><span class="citation">@cmiller01</span></li>
+<li><span class="citation">@jonmcalder</span></li>
 </ul>
 </div>
 <div id="contributed-to-by" class="section level3">
 <h3>Contributed to by</h3>
 <ul>
-<li><span class="citation">@jonmcalder</span></li>
+<li><span class="citation">@jonboiser</span></li>
 <li><span class="citation">@katrinleinweber</span></li>
-<li><span class="citation">@kytrinyx</span></li>
 <li><span class="citation">@zacchaeusluke</span></li>
 </ul>
 </div>
 <div id="based-on" class="section level3">
 <h3>Based on</h3>
-<p>The Calculating Point Mutations problem at Rosalind - <a href="http://rosalind.info/problems/hamm/" class="uri">http://rosalind.info/problems/hamm/</a></p>
+<p>A variation on FizzBuzz, a famous technical interview question that
+is intended to weed out potential candidates. That question is itself
+derived from Fizz Buzz, a popular children’s game for teaching division.
+- <a href="https://en.wikipedia.org/wiki/Fizz_buzz" class="uri">https://en.wikipedia.org/wiki/Fizz_buzz</a></p>
 </div>
 </div>
 </div>
