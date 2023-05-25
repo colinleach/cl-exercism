@@ -46,3 +46,7 @@ julia/Untitled.ipynb
 cmake-build-debug/
 
 Untitled.ipynb
+
+bin/
+.vs/
+obj/
