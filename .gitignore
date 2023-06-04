@@ -50,3 +50,9 @@ Untitled.ipynb
 bin/
 .vs/
 obj/
+
+python/Untitled1.ipynb
+
+python/Untitled2.ipynb
+
+*.dhall

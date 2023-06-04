@@ -1,16 +1,29 @@
 # Two Fer
 
-`Two-fer` or `2-fer` is short for two for one. One for you and one for me.
+Welcome to Two Fer on Exercism's JavaScript Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
 
-Given a name, return a string with the message:
+## Introduction
+
+In some English accents, when you say "two for" quickly, it sounds like "two fer".
+Two-for-one is a way of saying that if you buy one, you also get one for free.
+So the phrase "two-fer" often implies a two-for-one offer.
+
+Imagine a bakery that has a holiday offer where you can buy two cookies for the price of one ("two-fer one!").
+You go for the offer and (very generously) decide to give the extra cookie to a friend.
+
+## Instructions
+
+Your task is to determine what you will say as you give away the extra cookie.
+
+If your friend likes cookies, and is named Do-yun, then you will say:
 
 ```text
-One for name, one for me.
+One for Do-yun, one for me.
 ```
 
-Where "name" is the given name.
-
-However, if the name is missing, return the string:
+If your friend doesn't like cookies, you give the cookie to the next person in line at the bakery.
+Since you don't know their name, you will say _you_ instead.
 
 ```text
 One for you, one for me.
@@ -18,58 +31,25 @@ One for you, one for me.
 
 Here are some examples:
 
-|Name    |String to return
-|:-------|:------------------
-|Alice   |One for Alice, one for me.
-|Bob     |One for Bob, one for me.
-|        |One for you, one for me.
-|Zaphod  |One for Zaphod, one for me.
+| Name   | Dialogue                    |
+| :----- | :-------------------------- |
+| Alice  | One for Alice, one for me.  |
+| Bohdan | One for Bohdan, one for me. |
+|        | One for you, one for me.    |
+| Zaphod | One for Zaphod, one for me. |
 
-## Setup
+## Source
 
-Go through the setup instructions for Javascript to install the necessary
-dependencies:
+### Created by
 
-[https://exercism.io/tracks/javascript/installation](https://exercism.io/tracks/javascript/installation)
+- @laurmurclar
 
-## Requirements
+### Contributed to by
 
-Please `cd` into exercise directory before running all below commands.
+- @mluisamc
+- @serixscorpio
+- @SleeplessByte
 
-Install assignment dependencies:
+### Based on
 
-```bash
-$ npm install
-```
-
-## Making the test suite pass
-
-Execute the tests with:
-
-```bash
-$ npm test
-```
-
-In the test suites all tests but the first have been skipped.
-
-Once you get a test passing, you can enable the next one by changing `xtest` to
-`test`.
-
-
-## Submitting Solutions
-
-Once you have a solution ready, you can submit it using:
-
-```bash
-exercism submit two-fer.js
-```
-
-## Submitting Incomplete Solutions
-
-It's possible to submit an incomplete solution so you can see how others have
-completed the exercise.
-
-## Exercise Source Credits
-
-[https://github.com/exercism/problem-specifications/issues/757](https://github.com/exercism/problem-specifications/issues/757)
-
+https://github.com/exercism/problem-specifications/issues/757
