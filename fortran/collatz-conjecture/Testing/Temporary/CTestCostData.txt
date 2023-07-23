@@ -1,0 +1,2 @@
+collatz-conjecture_test 2 0.00201243
+---

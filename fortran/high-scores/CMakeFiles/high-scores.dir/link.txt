@@ -1,0 +1,1 @@
+/usr/bin/f95 -std=f2008 -W -Wall -Wextra -pedantic -fbacktrace -g CMakeFiles/high-scores.dir/high_scores.f90.o CMakeFiles/high-scores.dir/high_scores_test.f90.o -o high-scores  testlib/libTesterMain.a 

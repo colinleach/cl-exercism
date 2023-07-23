@@ -1,0 +1,20 @@
+Start testing: Jul 23 09:53 MST
+----------------------------------------------------------
+1/1 Testing: collatz-conjecture_test
+1/1 Test: collatz-conjecture_test
+Command: "/home/colin/zcode/exercism/fortran/collatz-conjecture/collatz-conjecture"
+Directory: /home/colin/zcode/exercism/fortran/collatz-conjecture
+"collatz-conjecture_test" start time: Jul 23 09:53 MST
+Output:
+----------------------------------------------------------
+ Test summary: 0 of 6 tests failed
+STOP 0
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"collatz-conjecture_test" end time: Jul 23 09:53 MST
+"collatz-conjecture_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 23 09:53 MST

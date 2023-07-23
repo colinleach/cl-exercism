@@ -1,0 +1,20 @@
+Start testing: Jul 22 17:42 MST
+----------------------------------------------------------
+1/1 Testing: armstrong-numbers_test
+1/1 Test: armstrong-numbers_test
+Command: "/home/colin/zcode/exercism/fortran/armstrong-numbers/armstrong-numbers"
+Directory: /home/colin/zcode/exercism/fortran/armstrong-numbers
+"armstrong-numbers_test" start time: Jul 22 17:42 MST
+Output:
+----------------------------------------------------------
+ Test summary: 0 of 9 tests failed
+STOP 0
+<end of output>
+Test time =   0.01 sec
+----------------------------------------------------------
+Test Passed.
+"armstrong-numbers_test" end time: Jul 22 17:42 MST
+"armstrong-numbers_test" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jul 22 17:42 MST

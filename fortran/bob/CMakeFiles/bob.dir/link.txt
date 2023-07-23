@@ -1,0 +1,1 @@
+/usr/bin/f95 -std=f2008 -W -Wall -Wextra -pedantic -fbacktrace -g CMakeFiles/bob.dir/bob.f90.o CMakeFiles/bob.dir/bob_test.f90.o -o bob  testlib/libTesterMain.a 

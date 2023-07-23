@@ -1,0 +1,2 @@
+armstrong-numbers_test 2 0.00311495
+---
