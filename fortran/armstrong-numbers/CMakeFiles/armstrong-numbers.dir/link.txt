@@ -1,0 +1,1 @@
+/usr/bin/f95 -std=f2008 -W -Wall -Wextra -pedantic -fbacktrace -g CMakeFiles/armstrong-numbers.dir/armstrong_numbers.f90.o CMakeFiles/armstrong-numbers.dir/armstrong_numbers_test.f90.o -o armstrong-numbers  testlib/libTesterMain.a 
