@@ -7,9 +7,9 @@ class School {
     {
       if (school.contains(g)) {
         val newSeq: Seq[String] = school(g) :+ name
-        school(g) = newSeq
+        school += (g -> newSeq)
       }
-      else school(g) = Seq(name)
+      else school += (g -> Seq(name))
     }
 
   def db: DB = school
@@ -17,6 +17,6 @@ class School {
   def grade(g: Int): Seq[String] =     
        if (school.contains(g)) school(g) else Seq()
 
-  def sorted: DB = school
+  def sorted: DB = Map(school.toSeq.sortBy(_._1):_*)
 }
 
