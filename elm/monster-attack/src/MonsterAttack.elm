@@ -17,7 +17,8 @@ attackWithClaw1 monsterDamage strength =
 
 attack1 : MonsterDamage -> MonsterDamage
 attack1 monsterDamage =
-    String.concat [ "Attacked with sword of strength 5.",
+    String.concat [ monsterDamage,
+                    "Attacked with sword of strength 5.",
                     "Attacked with claw of strength 1.",
                     "Attacked with claw of strength 1.",
                     "Attacked with sword of strength 5."]
