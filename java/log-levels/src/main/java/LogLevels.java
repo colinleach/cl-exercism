@@ -1,14 +1,20 @@
 public class LogLevels {
-    
+
+    private static String[] getBits(String logLine) {
+        return logLine.split("]: ");
+    }
+
     public static String message(String logLine) {
-        throw new UnsupportedOperationException("Please implement the (static) LogLine.message() method");
+        String[] bits = getBits(logLine);
+        return bits[1].trim();
     }
 
     public static String logLevel(String logLine) {
-        throw new UnsupportedOperationException("Please implement the (static) LogLine.logLevel() method");
+        String[] bits = getBits(logLine);
+        return bits[0].replace("[", "").toLowerCase();
     }
 
     public static String reformat(String logLine) {
-        throw new UnsupportedOperationException("Please implement the (static) LogLine.reformat() method");
+        return String.format("%s (%s)", message(logLine), logLevel(logLine));
     }
 }
