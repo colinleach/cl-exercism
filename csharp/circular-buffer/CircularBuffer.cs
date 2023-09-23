@@ -4,12 +4,9 @@ using System.Collections.Generic;
 public class CircularBuffer<T>
 {
     private Queue<T> _buff = new Queue<T>();
-    private int _capacity;
+    private readonly int _capacity;
     
-    public CircularBuffer(int capacity)
-    {
-        _capacity = capacity;
-    }
+    public CircularBuffer(int capacity) => _capacity = capacity;
 
     public T Read()
     {
