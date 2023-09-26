@@ -1,14 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class BinarySearchTree : IEnumerable<int>
 {
     private bool _valueSet = false;
-    private BinarySearchTree _left = null;
-    private BinarySearchTree _right = null;
 
-    public BinarySearchTree(int value) => Value = value;
+    public BinarySearchTree(int value)
+    {
+        Value = value;
+        _valueSet = true;
+    }
 
     public BinarySearchTree(IEnumerable<int> values)
     {
@@ -25,33 +28,37 @@ public class BinarySearchTree : IEnumerable<int>
 
     public int Value { get; }
 
-    public BinarySearchTree Left => _left;
+    public BinarySearchTree Left { get; private set; } = null;
 
-    public BinarySearchTree Right => _right;
+    public BinarySearchTree Right { get; private set; } = null;
 
     public BinarySearchTree Add(int value)
     {
-        if (value < Value)
+        if (value <= Value)
         {
-            if (_left == null) _left = new BinarySearchTree(value);
-            else _left.Add(Value);
+            Left = Left == null ? new BinarySearchTree(value) : Left.Add(value);
         }
         else
         {
-            if (_right == null) _right = new BinarySearchTree(value);
-            else _right.Add(Value);
+            Right = Right == null ? new BinarySearchTree(value) : Right.Add(value);
         }
-
         return this;
     }
 
     public IEnumerator<int> GetEnumerator()
     {
-        throw new NotImplementedException("You need to implement this function.");
+        if (Left != null)
+        {
+            foreach (int val in Left.AsEnumerable()) yield return val;
+        }
+
+        yield return Value;
+        
+        if (Right != null)
+        {
+            foreach (int val in Right.AsEnumerable()) yield return val;
+        }
     }
 
-    IEnumerator IEnumerable.GetEnumerator()
-    {
-        throw new NotImplementedException("You need to implement this function.");
-    }
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 }
