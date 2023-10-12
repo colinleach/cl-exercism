@@ -16,12 +16,11 @@ class BoutiqueInventory
   end
 
   def stock_for_item(name)
-    named_item = @items.select { |item| item[:name] == name }
-    named_item[:quantity_by_size]
+    @items.find { |item| item[:name] == name }[:quantity_by_size]
   end
 
   def total_stock
-    @items.sum { |item| item[:quantity_by_size].sum}
+    @items.sum { |item| item[:quantity_by_size].map { |_, value| value }.sum }
   end
 
   private
