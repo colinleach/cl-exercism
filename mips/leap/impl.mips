@@ -1,0 +1,31 @@
+.globl is_leap_year
+
+is_leap_year:
+	addi $t0, $zero, 400
+	div $a0, $t0
+	mfhi $t1 	# n % 400
+	bnez $t1, L1
+	addi $v0, $zero, 1
+	jr $ra		# n % 400 ==  0, return true
+	
+L1:
+	addi $t0, $zero, 4
+	div $a0, $t0
+	mfhi $t1 	# n % 4
+	beqz $t1, L2
+	addi $v0, $zero, 0
+	jr $ra		# n % 4 !=  0, return false
+
+L2:
+	addi $t0, $zero, 100
+	div $a0, $t0
+	mfhi $t1 	# n % 100
+	beqz $t1, end
+	addi $v0, $zero, 1
+	jr $ra		# non-century leap year, return true
+
+end:
+	addi $v0, $zero, 0
+	jr $ra		# n % 100 == 0, return false
+
+	
