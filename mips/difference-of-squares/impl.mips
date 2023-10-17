@@ -1,0 +1,21 @@
+.globl difference_of_squares
+
+difference_of_squares:
+# unsigned int square_of_sum(unsigned int n) {
+#     unsigned int sum = (n * (n + 1) / 2);
+#     return sum * sum;
+	addi $t2, $a0, 1	# n + 1
+	mul $t3, $a0, $t2	# n * (n + 1)
+	div $t0, $t3, 2		# ssum
+	mul $t0, $t0, $t0	# square_of_sum
+
+# unsigned int sum_of_squares(unsigned int n) 
+#     return n * (n + 1) * (2 * n + 1) / 6;
+	sll $t1, $a0, 1		# 2 * n
+	addi $t1, $t1, 1	# 2 * n + 1
+	mul $t1, $t3, $t1	# n * (n + 1) * (2 * n + 1)
+	div $t1, $t1, 6		# sum_of_squares
+
+	sub $v0, $t0, $t1	# square_of_sum(n) - sum_of_squares(n)
+	
+        jr $ra
