@@ -1,0 +1,8 @@
+.globl binary_convert
+
+.text
+
+binary_convert:
+        
+
+        jr $ra
