@@ -2,31 +2,31 @@
 
 square:
 	# if (index < 1 || index > 64) return 0
-	slti $t0, $a0, 1
-	bnez $t0, error
-	sgt $t0, $a0, 64
-	bnez $t0, error
+	slti 	$t0, $a0, 1
+	bnez 	$t0, error
+	sgt 	$t0, $a0, 64
+	bnez 	$t0, error
 	
-	sub $t1, $a0, 1
-	sge $t0, $t1, 32
-	bnez $t0, big
+	sub 	$t1, $a0, 1
+	sge 	$t0, $t1, 32
+	bnez 	$t0, big
 	
 # lower half of board changes $v0 ($v1 zero)
-	addi $v0, $zero, 1
-	sllv $v0, $v0, $t1
-	add $v1, $zero, $zero
-	jr $ra
+	li	$v0, 1
+	sllv 	$v0, $v0, $t1
+	li	$v1, 0
+	jr 	$ra
 	
 big:
 # upper half of board chanves $v1 ($v0 zero)
-	sub $t1, $t1, 32
-	addi $v1, $zero, 1
-	sllv $v1, $v1, $t1
-	add $v0, $zero, $zero
-	jr $ra
+	sub 	$t1, $t1, 32
+	li	$v1, 1
+	sllv 	$v1, $v1, $t1
+	li	$v0, 0
+	jr 	$ra
 	
 	
 error:
-	add $v0, $zero, $zero	# invalid square returns zero
-	add $v1, $zero, $zero
-	jr $ra
+	li	$v0, 0	# invalid square returns zero
+	li	$v1, 0
+	jr 	$ra

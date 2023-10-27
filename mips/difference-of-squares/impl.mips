@@ -6,7 +6,7 @@ difference_of_squares:
 #     return sum * sum;
 	addi $t2, $a0, 1	# n + 1
 	mul $t3, $a0, $t2	# n * (n + 1)
-	div $t0, $t3, 2		# ssum
+	div $t0, $t3, 2		# sum
 	mul $t0, $t0, $t0	# square_of_sum
 
 # unsigned int sum_of_squares(unsigned int n) 
@@ -16,6 +16,7 @@ difference_of_squares:
 	mul $t1, $t3, $t1	# n * (n + 1) * (2 * n + 1)
 	div $t1, $t1, 6		# sum_of_squares
 
-	sub $v0, $t0, $t1	# square_of_sum(n) - sum_of_squares(n)
+# square_of_sum(n) - sum_of_squares(n)
+	sub $v0, $t0, $t1	
 	
         jr $ra
