@@ -20,17 +20,17 @@
 #       3
 #     '
 # 
-# You'll need to use parenthses to control order of operations
+# You'll need to use parentheses to control order of operations
 
 # Task 1: replace `null` with the "name" element of the shopping list.
-.name,
+null,
 
 # Task 2: replace `null` with the count of the required ingredients.
-(.ingredients | length),
+(null),
 
 # Task 3: replace `null` with the amount of sugar.
-(.ingredients[] | select(.item == "sugar") | .amount.quantity) ,
+(null),
 
 # Task 4: replace `null` with the mapping of ingredient names with their substitutions
 # (no comma after the last filter)
-((.ingredients, ."optional ingredients")[] | select(.substitute != null))
+(null)
