@@ -1,0 +1,54 @@
+# - read input address of string from a0
+# - write integer result to v0
+
+# t1 - address index into input string
+# t2 - current char in input string
+# t3 - address index into colors array
+# t6 - address index into current color string
+# t7 - current char in color string
+
+.globl color_code
+
+.data
+colors: .asciiz "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white"
+
+.text
+color_code:
+# loop through the colors array, looking for a match to the input string
+	li	$t0, 0		# return value is same as index in color array
+	move	$t9, $a0
+	la	$t3, colors	# address of colors[0]
+	
+loop_colors:
+	move	$t6, $t3	# address of first char to try match
+	move	$t1, $t9	# address of current input char
+
+loop_chars:
+	lb	$t2, 0($t1)
+	lb	$t7, 0($t6)
+	bne	$t2, $t7, next_color	# mismatch
+
+	beqz	$t2, done	# end of string, found match!
+	
+	addi	$t1, $t1, 1	# increment input character pointer
+	addi	$t6, $t6, 1	# increment current color char pointer
+	j	loop_chars
+	
+next_color:
+	addi	$t0, $t0, 1	# increment colors array index (and resistor value)
+	beq	$t0, 10, error	# end of colors[], no match found
+	
+scan_colors:	
+	addi	$t3, $t3, 1	# move through colors, looking for nul
+	lb	$t8, 0($t3)
+	bnez	$t8, scan_colors
+	addi	$t3, $t3, 1	# start of next color
+	j	loop_colors
+	
+done:
+	move	$v0, $t0	# return index of matching color
+	jr	$ra	
+	
+error:
+	li	$v0, -1		# return error value for no-match
+	jr	$ra
