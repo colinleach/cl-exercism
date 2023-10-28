@@ -1,0 +1,53 @@
+# - read input string from a0
+# - read shift key from a1
+# - write a zero-terminated string representing the return value to address given in a2
+
+.globl rotate
+
+rotate:
+	move 	$t0, $a0
+	move 	$t1, $a1
+	move	$t9, $a2
+	
+loop:
+	lb	$t2, 0($t0)
+	beqz	$t2, done	# end of input
+	
+	sgeu	$t4, $t2, 0x41	# >= 'a'
+	sleu	$t5, $t2, 0x5A	# <= 'z'
+	or	$t6, $t4, $t5
+	beqz	$t6, lowercase
+	
+	sgeu	$t4, $t2, 0x61	# >= 'A'
+	sleu	$t5, $t2, 0x7A	# <= 'Z'
+	or	$t6, $t4, $t5
+	beqz	$t6, uppercase
+	
+punctuation:
+	move	$t3, $t2
+	
+lowercase:
+	add	$t3, $t2, $t1
+	
+	# do we need to wrap the alphabet?
+	sgtu	$t4, $t3, 0x7A	# > 'z'
+	beqz	$t4, store 
+	addi	$t3, $t3, -26	# wrap alphabet
+	j	store
+
+uppercase:
+	add	$t3, $t2, $t1
+	
+	# do we need to wrap the alphabet?
+	sgtu	$t4, $t3, 0x5A	# >= 'Z'
+	beqz	$t4, store 
+	addi	$t3, $t3, -26	# wrap alphabet
+	
+store:
+	sb	$t3, 0($t9)	# write modified char to stack
+	addi	$t9, $t9, 1	# increment stack pointer
+	j	loop
+	
+done:
+	sb	$zero, 0($t9)	# add nul string terminator
+	jr	$ra
