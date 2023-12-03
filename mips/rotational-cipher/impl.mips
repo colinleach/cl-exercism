@@ -6,7 +6,6 @@
 
 rotate:
 	move 	$t0, $a0	# $t0 will increment as we step through the input
-	#lw 	$t1, 0($a1)	# shift key value in $t1
 	move	$t9, $a2	# $t9 will increment as we step through the output
 	
 loop:
@@ -14,15 +13,15 @@ loop:
 	addi	$t0, $t0, 1
 	beqz	$t2, done	# end of input
 	
-	sgeu	$t4, $t2, 0x41	# >= 'a'
-	sleu	$t5, $t2, 0x5A	# <= 'z'
-	or	$t6, $t4, $t5
-	beqz	$t6, lowercase
+	sgeu	$t4, $t2, 0x61	# >= 'a'
+	sleu	$t5, $t2, 0x7A	# <= 'z'
+	and	$t6, $t4, $t5
+	bnez	$t6, lowercase
 	
-	sgeu	$t4, $t2, 0x61	# >= 'A'
-	sleu	$t5, $t2, 0x7A	# <= 'Z'
-	or	$t6, $t4, $t5
-	beqz	$t6, uppercase
+	sgeu	$t4, $t2, 0x41	# >= 'A'
+	sleu	$t5, $t2, 0x5A	# <= 'Z'
+	and	$t6, $t4, $t5
+	bnez	$t6, uppercase
 	
 punctuation:
 	move	$t3, $t2
