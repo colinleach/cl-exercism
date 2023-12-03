@@ -26,6 +26,7 @@ loop:
 	
 punctuation:
 	move	$t3, $t2
+	j	store
 	
 lowercase:
 	add	$t3, $t2, $a1
@@ -46,6 +47,8 @@ uppercase:
 	
 store:
 	sb	$t3, 0($t9)	# write modified char to stack
+	
+next:
 	addi	$t9, $t9, 1	# increment stack pointer
 	j	loop
 	
