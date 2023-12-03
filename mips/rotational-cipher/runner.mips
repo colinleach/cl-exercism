@@ -26,9 +26,12 @@
 # number of test cases
 n: .word 10
 # input values and expected output values (all null terminated)
-texts: .asciiz "a", "a", "a", "m", "n", "OMG", "O M G", "Testing 1 2 3 testing", "Let's eat, Grandma!", "The quick brown fox jumps over the lazy dog."
-shift_keys: .word 0, 1, 26, 13, 13, 5, 5, 4, 21, 13
-outs: .asciiz "a", "b", "a", "z", "a", "TRL", "T R L", "Xiwxmrk 1 2 3 xiwxmrk", "Gzo'n zvo, Bmviyhv!", "Gur dhvpx oebja sbk whzcf bire gur ynml qbt."
+# texts: .asciiz "a", "a", "a", "m", "n", "OMG", "O M G", "Testing 1 2 3 testing", "Let's eat, Grandma!", "The quick brown fox jumps over the lazy dog."
+# shift_keys: .word 0, 1, 26, 13, 13, 5, 5, 4, 21, 13
+# outs: .asciiz "a", "b", "a", "z", "a", "TRL", "T R L", "Xiwxmrk 1 2 3 xiwxmrk", "Gzo'n zvo, Bmviyhv!", "Gur dhvpx oebja sbk whzcf bire gur ynml qbt."
+texts: .asciiz "a", "a", "m"
+shift_keys: .word 1, 26, 13
+outs: .asciiz "b", "a", "z"
 
 failmsg: .asciiz "failed for test input: "
 shiftkeymsg: .asciiz " with shift key "

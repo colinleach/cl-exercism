@@ -5,12 +5,13 @@
 .globl rotate
 
 rotate:
-	move 	$t0, $a0
-	move 	$t1, $a1
-	move	$t9, $a2
+	move 	$t0, $a0	# $t0 will increment as we step through the input
+	#lw 	$t1, 0($a1)	# shift key value in $t1
+	move	$t9, $a2	# $t9 will increment as we step through the output
 	
 loop:
 	lb	$t2, 0($t0)
+	addi	$t0, $t0, 1
 	beqz	$t2, done	# end of input
 	
 	sgeu	$t4, $t2, 0x41	# >= 'a'
@@ -27,7 +28,7 @@ punctuation:
 	move	$t3, $t2
 	
 lowercase:
-	add	$t3, $t2, $t1
+	add	$t3, $t2, $a1
 	
 	# do we need to wrap the alphabet?
 	sgtu	$t4, $t3, 0x7A	# > 'z'
@@ -36,7 +37,7 @@ lowercase:
 	j	store
 
 uppercase:
-	add	$t3, $t2, $t1
+	add	$t3, $t2, $a1
 	
 	# do we need to wrap the alphabet?
 	sgtu	$t4, $t3, 0x5A	# >= 'Z'
