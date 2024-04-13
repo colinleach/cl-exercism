@@ -61,3 +61,7 @@ javascript/two-fer/.eslintrc
 
 .yarn/
 48in24.md
+
+_build/
+
+.pyret/compiled/
