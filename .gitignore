@@ -64,4 +64,4 @@ javascript/two-fer/.eslintrc
 
 _build/
 
-.pyret/compiled/
+compiled/
