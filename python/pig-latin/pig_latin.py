@@ -1,13 +1,22 @@
-import string
+import re
+
+def pigword(word):
+    # Rule 1
+    if (re.match(r"^[aeiou]", word) or
+            word.startswith("xr") or word.startswith("yt")):
+        return word + "ay"
+
+    # Rule 3
+    m = re.match(r"^([^aeiou]*qu)(.*)", word)
+    if m:
+        return m.group(2) + m.group(1) + "ay"
+
+    # Rules 2 and 4
+    m = re.match(r"^([^aeiou]+)([aeiouy].*)", word)
+    if m:
+        return m.group(2) + m.group(1) + "ay"
+
 
 def translate(text):
-    vowel_sounds = {'a', 'e', 'i', 'o' 'u', 'xr', 'yt'}
-    consonant_sounds = set(string.ascii_lowercase).union(['ch', 'st'])
-    if any([text.startswith(vs) for vs in vowel_sounds]):
-        mod_text = text + 'ay'  # rule 1
-    elif :
-        mod_text = text[1:] + text[0] + 'ay'  # rule 2
+    return " ".join([pigword(w) for w in text.split()])
 
-
-
-    return mod_text
