@@ -1,90 +1,98 @@
 from itertools import permutations
-from collections import namedtuple
+from enum import Enum
 
-Number = namedtuple('Number', ('one', 'two', 'three', 'four', 'five'))
-Color = namedtuple('Color', ('red', 'green', 'blue', 'ivory', 'yellow'))
-Drink = namedtuple('Drink', ('coffee', 'tea', 'milk', 'orangeJuice', 'water'))
-Pet = namedtuple('Pet', ('dog', 'fox', 'horse', 'cat', 'zebra'))
-Smoke = namedtuple('Smoke', ('OldGold', 'Kools', 'LuckyStrike', 'Parliaments', 'Other'))
-Nation = namedtuple('Nation', ('Englishman', 'Ukrainian', 'Spaniard', 'Norwegian', 'Japanese'))
+class Nation(Enum):
+    ENGLISH = 1
+    SPANISH = 2
+    UKRAINIAN = 3
+    NORWEGIAN = 4
+    JAPANESE = 5
 
-numbers = Number(0, 1, 2, 3, 4)
-colors = Color(0, 1, 2, 3, 4)
-drinks = Drink(0, 1, 2, 3, 4)
-pets = Pet(0, 1, 2, 3, 4)
-smokes = Smoke(0, 1, 2, 3, 4)
-nations = Nation(0, 1, 2, 3, 4)
+class Color(Enum):
+    RED = 1
+    GREEN = 2
+    IVORY = 3
+    YELLOW = 4
+    BLUE = 5
 
+class Hobby(Enum):
+    DANCING = 1
+    READING = 2
+    PAINTING = 3
+    FOOTBALL = 4
+    CHESS = 5
 
-def main():
-    perms = list(permutations(range(5)))
-    # condition 2
-    for color in perms:
-        if color[nations.Englishman] != colors.red:
-            continue
-        # condition 3
-        for pet in perms:
-            if pet[nations.Spaniard] != pets.dog:
-                continue
-            # condition 4
-            for drink in perms:
-                if drink[colors.green] != drinks.coffee:
+class Animal(Enum):
+    DOG = 1
+    SNAIL = 2
+    FOX = 3
+    HORSE = 4
+    ZEBRA = 5
 
-
-
-# def show_row(t, data):
-#   print("%6s: %12s%12s%12s%12s%12s" % (
-#     t.__name__, t.elems[data[0]],
-#     t.elems[data[1]], t.elems[data[2]],
-#     t.elems[data[3]], t.elems[data[4]]))
-
-def main():
-    perms = list(permutations(range(5)))
-    for number in perms:
-        if number[Nation.Norvegian] == Number.One:  # Constraint 10
-            for color in perms:
-                if color[Nation.British] == Color.Red:  # Constraint 2
-                    if number[color.index(Color.Blue)] == Number.Two:  # Constraint 15+10
-                        if number[color.index(Color.White)] - number[color.index(Color.Green)] == 1:  # Constraint 5
-                            for drink in perms:
-                                if drink[Nation.Danish] == Drink.Tea:  # Constraint 4
-                                    if drink[color.index(Color.Green)] == Drink.Coffee:  # Constraint 6
-                                        if drink[number.index(Number.Three)] == Drink.Milk:  # Constraint 9
-                                            for smoke in perms:
-                                                if smoke[Nation.German] == Smoke.Prince:  # Constraint 14
-                                                    if drink[
-                                                        smoke.index(Smoke.BlueMaster)] == Drink.Beer:  # Constraint 13
-                                                        if smoke[
-                                                            color.index(Color.Yellow)] == Smoke.Dunhill:  # Constraint 8
-                                                            if number[smoke.index(Smoke.Blend)] - number[
-                                                                drink.index(Drink.Water)] in (1, -1):  # Constraint 16
-                                                                for pet in perms:
-                                                                    if pet[Nation.Swedish] == Pet.Dog:  # Constraint 3
-                                                                        if pet[smoke.index(
-                                                                                Smoke.PallMall)] == Pet.Bird:  # Constraint 7
-                                                                            if number[pet.index(Pet.Horse)] - number[
-                                                                                smoke.index(Smoke.Dunhill)] in (
-                                                                            1, -1):  # Constraint 12
-                                                                                if number[smoke.index(Smoke.Blend)] - \
-                                                                                        number[pet.index(Pet.Cat)] in (
-                                                                                1, -1):  # Constraint 11
-                                                                                    print("Found a solution:")
-                                                                                    show_row(Nation, range(5))
-                                                                                    show_row(Number, number)
-                                                                                    show_row(Color, color)
-                                                                                    show_row(Drink, drink)
-                                                                                    show_row(Smoke, smoke)
-                                                                                    show_row(Pet, pet)
-                                                                                    print
+class Drink(Enum):
+    COFFEE = 1
+    MILK = 2
+    ORANGE = 3
+    TEA = 4
+    WATER = 5
 
 
-main()
-#
-#
-#
-# def drinks_water():
-#     pass
-#
-#
-# def owns_zebra():
-#     pass
+def solve():
+    perms = list(permutations([1, 2, 3, 4, 5]))
+    result = []
+
+    # 10: The Norwegian lives in the first house
+    nation_iter = (nation for nation in perms if nation[0] == Nation.NORWEGIAN.value)
+    for nation in nation_iter:
+        # 2: The Englishman lives in the red house
+        # 6: The green house is immediately to the right of the ivory house
+        # 15: The Norwegian lives next door to the blue house
+        color_iter = (color for color in perms if
+                      nation.index(Nation.ENGLISH.value) == color.index(Color.RED.value) and
+                      color.index(Color.GREEN.value) == color.index(Color.IVORY.value) + 1 and
+                      abs(nation.index(Nation.NORWEGIAN.value) - color.index(Color.BLUE.value)) == 1)
+        for color in color_iter:
+            # 4: The person in the green house drinks coffee
+            # 5: The Ukrainian drinks tea
+            # 9: The person in the middle house drinks milk
+            drink_iter = (drink for drink in perms if
+                          color.index(Color.GREEN.value) == drink.index(Drink.COFFEE.value) and
+                          nation.index(Nation.UKRAINIAN.value) == drink.index(Drink.TEA.value) and
+                          drink[2] == drink.index(Drink.MILK.value))
+            for drink in drink_iter:
+                # 3: The Spaniard owns the dog
+                animal_iter = (animal for animal in perms if
+                               nation.index(Nation.SPANISH.value) == animal.index(Animal.DOG.value))
+                for animal in animal_iter:
+                    # 7: The snail owner likes to go dancing
+                    # 8: The person in the yellow house is a painter
+                    # 11: The person who enjoys reading lives in the house next to the person with the fox
+                    # 12: The painter's house is next to the person with the horse
+                    # 13: The person who plays football drinks orange juice
+                    # 14: The Japanese person plays chess
+                    hobby_iter = (hobby for hobby in perms if
+                                  animal.index(Animal.SNAIL.value) == hobby.index(Hobby.DANCING.value) and
+                                  color.index(Color.YELLOW.value) == hobby.index(Hobby.PAINTING.value) and
+                                  abs(hobby.index(Hobby.READING.value) - animal.index(Animal.FOX.value)) == 1 and
+                                  abs(hobby.index(Hobby.PAINTING.value) - animal.index(Animal.HORSE.value)) == 1 and
+                                  hobby.index(Hobby.FOOTBALL.value) == drink.index(Drink.ORANGE.value) and
+                                  nation.index(Nation.JAPANESE.value) == hobby.index(Hobby.CHESS.value))
+                    for hobby in hobby_iter:
+                        result.append( (nation, color, drink, animal, hobby) )
+
+    assert len(result) == 1
+    return result[0]
+
+
+def drinks_water():
+    nation, _, drink, _, _ = solve()
+    water_index = drink.index(Drink.WATER.value)
+    nation_index = nation[water_index]
+    return Nation(nation_index).name.title()
+
+
+def owns_zebra():
+    nation, _, _, animal, _ = solve()
+    animal_index = animal.index(Animal.ZEBRA.value)
+    nation_index = nation[animal_index]
+    return Nation(nation_index).name.title()
