@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="RotationalCipher.fs" />
-    <Compile Include="RotationalCipherTests.fs" />
+    <Compile Include="PascalsTriangle.fs" />
+    <Compile Include="PascalsTriangleTests.fs" />
   </ItemGroup>
 
   <ItemGroup>
