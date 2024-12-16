@@ -1,0 +1,5 @@
+squareOfSum: function [n] -> (sum 1..n)^2
+
+sumOfSquares: function [n] -> sum (map 1..n 'x -> x^2)
+
+differenceOfSquares: function [n] -> (squareOfSum n) - (sumOfSquares n)

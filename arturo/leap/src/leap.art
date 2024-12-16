@@ -1,0 +1,5 @@
+divides?: function [x y] -> (x % y) = 0
+
+isLeap?: function [year][
+    or? (divides? year 400) (and? (divides? year 4) (not? divides? year 100))
+]
