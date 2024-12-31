@@ -29,7 +29,7 @@ def BuildTree(records):
         new_node = Node(rec.record_id)
         new_node.parent_id = rec.parent_id
         nodes.append(new_node)
-        
+
     nodes.sort(key=lambda n: n.node_id)
 
     for node in nodes:
