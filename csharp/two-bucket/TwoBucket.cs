@@ -10,15 +10,9 @@ public enum Bucket
 
 public class TwoBucketResult
 {
-    public int Moves { get; set; }
-    public Bucket GoalBucket { get; set; }
-    public int OtherBucket { get; set; }
-}
-
-internal class State
-{
-    public int vol1 { get; set; }
-    public int vol2 { get; set; }
+    public int Moves { get; init; }
+    public Bucket GoalBucket { get; init; }
+    public int OtherBucket { get; init; }
 }
 
 public class TwoBucket(int bucketOne, int bucketTwo, Bucket startBucket)
@@ -30,49 +24,52 @@ public class TwoBucket(int bucketOne, int bucketTwo, Bucket startBucket)
 
     public TwoBucketResult Measure(int goal)
     {
-        if (goal % GCD((uint) Bucket1, (uint) Bucket2) != 0 || goal > Math.Max(Bucket1, Bucket2))
+        if (goal % Gcd((uint) Bucket1, (uint) Bucket2) != 0 || goal > Math.Max(Bucket1, Bucket2))
             throw new ArgumentException("Solution is impossible");
 
-        HashSet<State> status =
+        HashSet<(int vol1, int vol2)> status =
         [
-            StartBucket == Bucket.One
-                ? new State { vol1 = Bucket1, vol2 = 0 }
-                : new State { vol1 = 0, vol2 = Bucket2 }
+            StartBucket == Bucket.One ? (Bucket1, 0) : (0, Bucket2) 
         ];
-        State found = status.FirstOrDefault(s => s.vol1 == goal || s.vol2 == goal);
+        (int vol1, int vol2) found = (0, 0);
+        bool isFound = false;
+        foreach (var s in status)
+        {
+            if (s.vol1 == goal || s.vol2 == goal)
+            {
+                found = s;
+                isFound = true;
+                break;
+            }
+        }
     
         int steps = 1;
-        HashSet<State> seen = 
-        [
-            StartBucket == Bucket.One
-                ? new State { vol1 = Bucket1, vol2 = 0 }
-                : new State { vol1 = 0, vol2 = Bucket2 }
-         ];
+        HashSet<(int vol1, int vol2)> seen = [(0, 0), (Bucket1, 0), (0, Bucket2)];
         
-        while (found == null)
+        while (!isFound)
         {
-            HashSet<State> prevStatus = status;
+            HashSet<(int vol1, int vol2)> prevStatus = status;
             status = [];
             steps++;
 
-            foreach (State s in prevStatus)
+            foreach ((int vol1, int vol2) s in prevStatus)
             {
                 // empty/fill one bucket:
-                HashSet<State> nextSteps = [
-                    new() { vol1 = s.vol1, vol2 = 0 },
-                    new() { vol1 = 0, vol2 = s.vol2 },
-                    new() { vol1 = s.vol1, vol2 = Bucket2 },
-                    new() { vol1 = Bucket1, vol2 = s.vol2 }
+                HashSet<(int vol1, int vol2)> nextSteps = [
+                    (s.vol1, 0 ),
+                    (0, s.vol2 ),
+                    (s.vol1, Bucket2),
+                    (Bucket1, s.vol2)
                 ];
                 
                 // transfers:
                 int transfer1To2 = Math.Min(s.vol1, Bucket2 - s.vol2);
-                nextSteps.Add(new State { vol1 = s.vol1 - transfer1To2, vol2 = s.vol2 + transfer1To2 });
+                nextSteps.Add( (s.vol1 - transfer1To2, s.vol2 + transfer1To2) );
                 
                 int transfer2To1 = Math.Min(s.vol2, Bucket1 - s.vol1);
-                nextSteps.Add(new State { vol1 = s.vol1 + transfer2To1, vol2 = s.vol2 - transfer2To1 });
+                nextSteps.Add( (s.vol1 + transfer2To1, s.vol2 - transfer2To1) );
                 
-                foreach (State n in nextSteps.Except(seen))
+                foreach (var n in nextSteps.Except(seen))
                 {
                     seen.Add(n);
                     status.Add(n);
@@ -82,6 +79,7 @@ public class TwoBucket(int bucketOne, int bucketTwo, Bucket startBucket)
             foreach (var s in status.Where(s => s.vol1 == goal || s.vol2 == goal))
             {
                 found = s;
+                isFound = true;
                 break;
             }
         }
@@ -90,7 +88,7 @@ public class TwoBucket(int bucketOne, int bucketTwo, Bucket startBucket)
             : new TwoBucketResult { Moves = steps, GoalBucket = Bucket.Two, OtherBucket = found.vol1 };
     }
     
-    private static int GCD(uint a, uint b)
+    private static int Gcd(uint a, uint b)
     // Adapted from:
     // https://stackoverflow.com/questions/18541832/c-sharp-find-the-greatest-common-divisor
     {
