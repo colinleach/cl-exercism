@@ -42,23 +42,23 @@ def solve():
     result = []
 
     # 10: The Norwegian lives in the first house
-    nation_iter = (nation for nation in perms if nation[0] == Nation.NORWEGIAN.value)
+    nation_iter = [nation for nation in perms if nation[0] == Nation.NORWEGIAN.value]
     for nation in nation_iter:
         # 2: The Englishman lives in the red house
         # 6: The green house is immediately to the right of the ivory house
         # 15: The Norwegian lives next door to the blue house
-        color_iter = (color for color in perms if
+        color_iter = [color for color in perms if
                       nation.index(Nation.ENGLISH.value) == color.index(Color.RED.value) and
                       color.index(Color.GREEN.value) == color.index(Color.IVORY.value) + 1 and
-                      abs(nation.index(Nation.NORWEGIAN.value) - color.index(Color.BLUE.value)) == 1)
+                      abs(nation.index(Nation.NORWEGIAN.value) - color.index(Color.BLUE.value)) == 1]
         for color in color_iter:
             # 4: The person in the green house drinks coffee
             # 5: The Ukrainian drinks tea
             # 9: The person in the middle house drinks milk
-            drink_iter = (drink for drink in perms if
+            drink_iter = [drink for drink in perms if
                           color.index(Color.GREEN.value) == drink.index(Drink.COFFEE.value) and
                           nation.index(Nation.UKRAINIAN.value) == drink.index(Drink.TEA.value) and
-                          drink[2] == drink.index(Drink.MILK.value))
+                          drink[2] == drink.index(Drink.MILK.value)]
             for drink in drink_iter:
                 # 3: The Spaniard owns the dog
                 animal_iter = (animal for animal in perms if
