@@ -1,8 +1,6 @@
 #include "armstrong_numbers.h"
 #include <math.h>
 
-double count_digits(int num);
-
 double count_digits(int num)
 {
     int digits = 0;
