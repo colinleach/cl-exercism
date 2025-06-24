@@ -1,15 +1,14 @@
 class Triangle<out T : Number>(val a: T, val b: T, val c: T) {
 
     init {
-        val a_ = a.toDouble(); val _b = b.toDouble(); val _c = c.toDouble()
-        if (listOf(a_, _b, _c).any { it == 0 } || a + b < c  )
+        val a_ = a.toDouble(); val b_ = b.toDouble(); val c_ = c.toDouble()
+        if (listOf(a_, b_, c_).any { it == 0.0 } )
+            throw IllegalArgumentException("All sides must be non-zero")
+        if ( (a_ + b_ <= c_) || (c_ + b_ <= a_) || (a_ + c_ <= b_) )
+            throw IllegalArgumentException("Violates triangle inequality")
     }
 
-    def isTriangle() {
-        listOf(a, b, c).all {it > 0}
-    }
-
-    val isEquilateral: Boolean = TODO("Implement this getter to complete the task")
-    val isIsosceles: Boolean = TODO("Implement this getter to complete the task")
-    val isScalene: Boolean = TODO("Implement this getter to complete the task")
+    val isEquilateral: Boolean = (a == b && b == c)
+    val isIsosceles: Boolean = (a == b || b == c || c == a)
+    val isScalene: Boolean = (a != b && b != c && c != a)
 }
