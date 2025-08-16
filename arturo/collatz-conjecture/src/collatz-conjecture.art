@@ -1,0 +1,30 @@
+collatz: function [n][
+    if n < 0 -> return null
+
+    count: 0
+    num: n
+    while [count <> 1][
+        inc 'count
+        case [num]
+            when? [even?] -> num: num / 2
+            when? [odd?] -> num: 1 + 3 * num
+    ]
+    return count
+]
+
+; collatz: function [n][
+;     if n < 1 [
+;         return null
+;     ]
+
+;     steps: 0
+;     num: n
+    
+;     while [num <> 1][
+; 		num: ? odd? num -> 1 + num * 3
+; 		                -> num / 2
+; 		'steps + 1
+; 	]
+    
+;     steps
+; ]
