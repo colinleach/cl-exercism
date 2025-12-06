@@ -35,3 +35,6 @@ clean:
 tests.out: test/*.c src/*.c src/*.h
 	@echo Compiling $@
 	@$(CC) $(CFLAGS) src/*.c test/vendor/unity.c test/*.c -o tests.out $(LIBS)
+
+all: src/*.c src/*.h
+	@$(CC) $(CFLAGS) src/*.c -o armstrong $(LIBS)
