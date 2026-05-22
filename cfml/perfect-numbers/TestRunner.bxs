@@ -1,0 +1,38 @@
+exerciseDir = getDirectoryFromPath( getCurrentTemplatePath() );
+
+// Hide an existing testbox (potentially from TestRunner.cfc) to avoid accessing it
+localTestBox  = exerciseDir & "testbox";
+hiddenTestBox = exerciseDir & ".testbox_cfml";
+hasConflict   = directoryExists( localTestBox );
+if( hasConflict ) directoryRename( localTestBox, hiddenTestBox );
+
+exitCode = 0;
+try {
+	testBox   = new testbox.system.TestBox( reporter = "console" );
+	testFiles = directoryList( exerciseDir, false, "name", "*Test.cfc" );
+
+	for( file in testFiles ) {
+		testBox.addBundles( "exercise." & file.listFirst( "." ) );
+	}
+
+	results = testBox.runRaw();
+	new testbox.system.reports.ConsoleReporter().runReport( results, testBox, {}, true );
+
+	if( results.getTotalFail() > 0 || results.getTotalError() > 0 ) {
+		exitCode = 1;
+	}
+
+} catch( any e ) {
+	systemOutput( "ERROR: " & e.message, true );
+	if( len( e.detail ?: "" ) ) systemOutput( e.detail, true );
+	exitCode = 1;
+}
+
+// Restore hidden testbox directory
+if( hasConflict && directoryExists( hiddenTestBox ) ) {
+	directoryRename( hiddenTestBox, localTestBox );
+}
+
+if( exitCode ) {
+	createObject( "java", "java.lang.System" ).exit( 1 );
+}

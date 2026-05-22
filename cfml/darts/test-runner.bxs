@@ -1,0 +1,113 @@
+solutionPath = server.cli.parsed.positionals[ 1 ];
+resultsPath = server.cli.parsed.positionals[ 2 ];
+
+try {
+    userHome = server.system.properties[ "user.home" ];
+    mappings = getApplicationMetadata().mappings;
+    mappings[ "/solution" ] = solutionPath;
+    mappings[ "/testbox" ] = userHome & "/.boxlang/modules/testbox";
+
+    testBox = new testbox.system.TestBox();
+    testFiles = directoryList( solutionPath, false, "name", "*Test.cfc" );
+    for ( file in testFiles ) {
+        testBox.addBundles( "solution." & file.listFirst( "." ) );
+    }
+
+    results = testBox.runRaw().getMemento();
+    bundleStats = results.bundleStats ?: [];
+
+    status = "pass";
+    message = "";
+    tests = [];
+
+    for ( bundle in bundleStats ) {
+        if ( structKeyExists( bundle, "globalException" ) && !isSimpleValue( bundle.globalException ) ) {
+            status = "error";
+            message = ( bundle.globalException.message ?: "Bundle compilation error" ).replace( solutionPath, "/solution", "ALL" );
+            break;
+        }
+    }
+
+    if ( status != "error" ) {
+        if ( ( results.totalBundles ?: 0 ) == 0 ) {
+            status = "error";
+            message = "No tests found";
+        } else {
+            // Read test file contents
+            for ( bundle in bundleStats ) {
+                testFileName = bundle.name.listLast( "." ) & ".cfc";
+                filePath = solutionPath & "/" & testFileName;
+                fileContent = fileExists( filePath ) ? fileRead( filePath ) : "";
+                collectSpecs( bundle.suiteStats ?: [], tests, fileContent );
+            }
+            if ( ( results.totalFail ?: 0 ) > 0 || ( results.totalError ?: 0 ) > 0 ) {
+                status = "fail";
+            }
+        }
+    }
+
+    output = { "version": 2, "status": status };
+    if ( message.len() ) {
+        output[ "message" ] = message;
+    }
+    if ( tests.len() ) {
+        output[ "tests" ] = tests;
+    }
+
+    fileWrite( resultsPath & "/results.json", jsonSerialize( output ) );
+
+} catch ( any e ) {
+    errMessage = e.message.replace( solutionPath, "/solution", "ALL" );
+    fileWrite( resultsPath & "/results.json",
+        jsonSerialize( { "version": 2, "status": "error", "message": errMessage } ) );
+}
+
+// Recursively collect specs
+function collectSpecs( required array suites, required array tests, required string fileContent ) {
+    for ( var suite in suites ) {
+        for ( var spec in ( suite.specStats ?: [] ) ) {
+            var specStatus = ( spec.status ?: "failed" ).lCase();
+            var testResult = {
+                "name": spec.name ?: "Unknown",
+                "status": specStatus == "passed" ? "pass" : ( specStatus == "failed" ? "fail" : "error" ),
+                "test_code": extractTestCode( fileContent, spec.name ?: "" )
+            };
+            if ( testResult.status != "pass" && ( spec.failMessage ?: "" ).len() ) {
+                testResult[ "message" ] = spec.failMessage;
+            }
+            tests.append( testResult );
+        }
+        if ( structKeyExists( suite, "suiteStats" ) && suite.suiteStats.len() ) {
+            collectSpecs( suite.suiteStats, tests, fileContent );
+        }
+    }
+}
+
+// Extract the body of an it() block
+function extractTestCode( required string fileContent, required string testName ) {
+    if ( !fileContent.len() || !testName.len() ) return "";
+
+    var lines = fileContent.listToArray( char( 10 ) );
+    var depth = 1;
+    var found = false;
+    var body = [];
+
+    for ( var line in lines ) {
+        if ( !found ) {
+            if ( line.reFind( "it\(\s*['""]" & testName & "['""]" ) > 0 && line.find( "{" ) > 0 ) {
+                found = true;
+            }
+            continue;
+        }
+
+        for ( var ch in line.listToArray( "" ) ) {
+            if ( ch == "{" ) depth++;
+            if ( ch == "}" ) depth--;
+        }
+        if ( depth <= 0 ) break;
+        body.append( line );
+    }
+
+    return trim( body.toList( char( 10 ) ) );
+}
+

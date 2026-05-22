@@ -7,3 +7,5 @@ end
 function sorted(s)
     s |> lowercase |> collect |> sort |> join
 end
+
+π ∈
